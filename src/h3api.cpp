@@ -39,6 +39,11 @@ GeoCoord ListToGeoCoord(List x) {
   stop("Input must be a list containing `lat` and `lon` members");
 }
 
+//' getCIndexFromCoords returns the raw h3 index from a lat, lon, and resolution
+//' @param lat latitude in degrees
+//' @param lon longitude in degrees
+//' @param resolution resolution, higher is more granular
+// [[Rcpp::export]]
 uint64_t getCIndexFromCoords(double lat, double lon, int res) {
   GeoCoord input;
   input.lat = normalize(lat);

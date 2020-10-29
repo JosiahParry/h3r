@@ -5,6 +5,19 @@
 
 using namespace Rcpp;
 
+// getCIndexFromCoords
+uint64_t getCIndexFromCoords(double lat, double lon, int res);
+RcppExport SEXP _h3r_getCIndexFromCoords(SEXP latSEXP, SEXP lonSEXP, SEXP resSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< double >::type lat(latSEXP);
+    Rcpp::traits::input_parameter< double >::type lon(lonSEXP);
+    Rcpp::traits::input_parameter< int >::type res(resSEXP);
+    rcpp_result_gen = Rcpp::wrap(getCIndexFromCoords(lat, lon, res));
+    return rcpp_result_gen;
+END_RCPP
+}
 // getIndexFromCoords
 String getIndexFromCoords(double lat, double lon, int resolution);
 RcppExport SEXP _h3r_getIndexFromCoords(SEXP latSEXP, SEXP lonSEXP, SEXP resolutionSEXP) {
@@ -44,6 +57,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_h3r_getCIndexFromCoords", (DL_FUNC) &_h3r_getCIndexFromCoords, 3},
     {"_h3r_getIndexFromCoords", (DL_FUNC) &_h3r_getIndexFromCoords, 3},
     {"_h3r_getBoundingHexFromCoords", (DL_FUNC) &_h3r_getBoundingHexFromCoords, 3},
     {"_h3r_getBoundingHexFromIndex", (DL_FUNC) &_h3r_getBoundingHexFromIndex, 1},
