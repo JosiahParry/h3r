@@ -31,3 +31,15 @@ getBoundingHexFromIndex <- function(index) {
     .Call(`_h3r_getBoundingHexFromIndex`, index)
 }
 
+#' h3_string_to_int takes an h3 index represented as a hexadecimal string and returns the integer format.
+#' @param index h3 index as a hex representation character vector. See \code{\link{getIndexFromCoords}}
+h3_string_to_int <- function(index) {
+    .Call(`_h3r_h3_string_to_int`, index)
+}
+
+#' h3_int_to_string takes an h3 integer representation and returns the string format. 
+#' @param index as an integer representation. 
+h3_int_to_string <- function(index) {
+    .Call(`_h3r_h3_int_to_string`, index)
+}
+

@@ -55,12 +55,36 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// h3_string_to_int
+uint64_t h3_string_to_int(String index);
+RcppExport SEXP _h3r_h3_string_to_int(SEXP indexSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< String >::type index(indexSEXP);
+    rcpp_result_gen = Rcpp::wrap(h3_string_to_int(index));
+    return rcpp_result_gen;
+END_RCPP
+}
+// h3_int_to_string
+String h3_int_to_string(uint64_t index);
+RcppExport SEXP _h3r_h3_int_to_string(SEXP indexSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< uint64_t >::type index(indexSEXP);
+    rcpp_result_gen = Rcpp::wrap(h3_int_to_string(index));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_h3r_getCIndexFromCoords", (DL_FUNC) &_h3r_getCIndexFromCoords, 3},
     {"_h3r_getIndexFromCoords", (DL_FUNC) &_h3r_getIndexFromCoords, 3},
     {"_h3r_getBoundingHexFromCoords", (DL_FUNC) &_h3r_getBoundingHexFromCoords, 3},
     {"_h3r_getBoundingHexFromIndex", (DL_FUNC) &_h3r_getBoundingHexFromIndex, 1},
+    {"_h3r_h3_string_to_int", (DL_FUNC) &_h3r_h3_string_to_int, 1},
+    {"_h3r_h3_int_to_string", (DL_FUNC) &_h3r_h3_int_to_string, 1},
     {NULL, NULL, 0}
 };
 

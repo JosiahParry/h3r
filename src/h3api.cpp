@@ -96,3 +96,19 @@ List getBoundingHexFromIndex(String index) {
   return getBoundingHexFromIndex(input);
 }
 
+//' h3_string_to_int takes an h3 index represented as a hexadecimal string and returns the integer format.
+//' @param index h3 index as a hex representation character vector. See \code{\link{getIndexFromCoords}}
+// [[Rcpp::export]]
+uint64_t h3_string_to_int(String index) {
+  uint64_t input = stringToH3(index.get_cstring());
+  return input;
+}
+
+//' h3_int_to_string takes an h3 integer representation and returns the string format. 
+//' @param index as an integer representation. 
+// [[Rcpp::export]]
+String h3_int_to_string(uint64_t index) {
+  char buf [32];
+  h3ToString(index, buf, 32);
+  return buf;
+}
